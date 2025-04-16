@@ -35,6 +35,7 @@ TEXTS = [
 
 users = ("bob", "ann", "mike", "liz")
 passwords = ("123", "pass123", "password123", "pass123")
+
 line = "-" * 40
 
 user = input("username:")
@@ -42,14 +43,26 @@ password = input("password:")
 
 print(line)
 
-
+# vyhodnocení zadaného jména a hesla
 if user in users and password in passwords:
     print("Welcome to the app,", user)
 else:
     print("unregistered user, terminating the program..")
 
-print("We have 3 texts to be analyzed.")
+pocet_textu = len(TEXTS)
+print(f"We have {pocet_textu} texts to be analyzed.")
 print(line)
 
-select_number = input("Enter a number btw. 1 and 3 to select:")
+# vybrání textu z listu
+select_number = input(f"Enter a number btw. 1 and {pocet_textu} to select:")
 print(line)
+
+#vyber_textu = TEXTS[select_number - 1]
+
+if not select_number.isdigit():
+    print("Zadaný parametr není číslo. Ukončuji program..")
+elif int(select_number) > pocet_textu:
+    print("Zadané číslo není v zadání textů. Ukončuji program..")
+else:
+    vyber_textu = TEXTS[int(select_number) - 1]
+    print(vyber_textu)
