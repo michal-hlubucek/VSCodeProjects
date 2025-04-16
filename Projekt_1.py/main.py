@@ -57,8 +57,7 @@ print(line)
 select_number = input(f"Enter a number btw. 1 and {pocet_textu} to select:")
 print(line)
 
-#vyber_textu = TEXTS[select_number - 1]
-
+# vyhodnocení zadání od uživatele
 if not select_number.isdigit():
     print("Zadaný parametr není číslo. Ukončuji program..")
 elif int(select_number) > pocet_textu:
