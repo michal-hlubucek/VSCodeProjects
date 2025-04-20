@@ -64,4 +64,37 @@ elif int(select_number) > pocet_textu:
     print("Zadané číslo není v zadání textů. Ukončuji program..")
 else:
     vyber_textu = TEXTS[int(select_number) - 1]
-    print(vyber_textu)
+
+
+# spočítání statistik
+vycistena_slova = []
+pocet_slov_s_velkym_pismenem = 0
+pocet_velkych_slov = 0
+pocet_malych_slov = 0
+pocet_cisel = 0
+suma = []
+
+
+for slovo in vyber_textu.split():
+    ciste_slovo = slovo.strip(",.;:'")
+    if ciste_slovo.istitle():
+        pocet_slov_s_velkym_pismenem += 1
+    elif ciste_slovo.isupper():
+        pocet_velkych_slov += 1
+    elif ciste_slovo.islower():
+        pocet_malych_slov += 1
+    elif ciste_slovo.isnumeric():
+        pocet_cisel += 1
+        suma.append(int(ciste_slovo))
+        soucet = sum(suma)
+    vycistena_slova.append(ciste_slovo)
+    pocet_slov = len(vycistena_slova)
+print(f"There are {pocet_slov} words in the selected text.")
+print(f"There are {pocet_slov_s_velkym_pismenem} titlecase words.")
+print(f"There are {pocet_velkych_slov} uppercase words.")
+print(f"There are {pocet_malych_slov} lowercase words.")
+print(f"There are {pocet_cisel} numeric strings.")
+print(f"The sum of all the numbers {soucet}")
+print(line)
+
+
