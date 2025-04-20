@@ -33,9 +33,9 @@ TEXTS = [
     garpike and stingray are also present.'''
 ]
 
-users = ("bob", "ann", "mike", "liz")
-passwords = ("123", "pass123", "password123", "pass123")
-
+#users = ("bob", "ann", "mike", "liz")
+#passwords = ("123", "pass123", "password123", "pass123")
+users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
 line = "-" * 40
 
 user = input("username:")
@@ -44,11 +44,11 @@ password = input("password:")
 print(line)
 
 # vyhodnocení zadaného jména a hesla
-if user in users and password in passwords:
+if user in users.keys() and users.get(user) == password:
     print("Welcome to the app,", user)
 else:
     print("unregistered user, terminating the program..")
-
+    quit()
 pocet_textu = len(TEXTS)
 print(f"We have {pocet_textu} texts to be analyzed.")
 print(line)
