@@ -97,4 +97,17 @@ print(f"There are {pocet_cisel} numeric strings.")
 print(f"The sum of all the numbers {soucet}")
 print(line)
 
+# sloupcový graf délek slov
+cetnosti = {}
+
+for ciste_slovo in vycistena_slova:
+    delka = len(ciste_slovo)
+    cetnosti[delka] = cetnosti.get(delka, 0) + 1
+
+print("LEN|", "OCURRENCES", "|NR.\t")
+print(line)
+for delka in sorted(cetnosti):
+    hvezdicky = '*' * cetnosti[delka]
+    print(f"{delka}  |{hvezdicky} |{cetnosti[delka]}")
+    
 
