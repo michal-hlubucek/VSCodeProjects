@@ -60,8 +60,10 @@ print(line)
 # vyhodnocení zadání od uživatele
 if not select_number.isdigit():
     print("Zadaný parametr není číslo. Ukončuji program..")
+    quit()
 elif int(select_number) > pocet_textu:
     print("Zadané číslo není v zadání textů. Ukončuji program..")
+    quit()
 else:
     vyber_textu = TEXTS[int(select_number) - 1]
 
@@ -72,7 +74,7 @@ pocet_slov_s_velkym_pismenem = 0
 pocet_velkych_slov = 0
 pocet_malych_slov = 0
 pocet_cisel = 0
-suma = []
+soucet = 0
 
 
 for slovo in vyber_textu.split():
@@ -85,8 +87,7 @@ for slovo in vyber_textu.split():
         pocet_malych_slov += 1
     elif ciste_slovo.isnumeric():
         pocet_cisel += 1
-        suma.append(int(ciste_slovo))
-        soucet = sum(suma)
+        soucet += int(ciste_slovo) 
     vycistena_slova.append(ciste_slovo)
     pocet_slov = len(vycistena_slova)
 print(f"There are {pocet_slov} words in the selected text.")
